@@ -33,7 +33,7 @@ class Cache {
 		$content = '';
 		foreach($urls as $url)
 			$content .= file_get_contents($url);
-		if($utf_convert) utf8_encode($content);
+		if($utf_convert) $content = utf8_encode($content);
 		file_put_contents($filename, $content);
 		return $filename;
 	}
