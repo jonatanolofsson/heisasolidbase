@@ -25,8 +25,8 @@ class Baptist extends Calendar {
 			if($when < strtotime('-6 months')) $when = strtotime('+1 year', $when);
 			$parsed_events[] = array(	'when' => $when,
 										'what' => trim($event['what']),
-										'where' => trim($event['where']),
-										'info' => trim($event['info']),
+										'where' => '',
+										'info' => '',
 										'extra' => '');
 		}
 
