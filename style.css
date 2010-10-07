@@ -1,0 +1,33 @@
+html{
+  font-size: 0.8em;
+}
+.day {
+  background: #def;
+  margin: 1em;
+  padding: 1em;
+  -moz-border-radius: 1em;
+  border-radius: 1em;
+}
+h2 {
+  font-size: 2em;
+}
+h3 {
+  font-size: 1.2em;
+}
+.meetings {
+  list-style: none;
+}
+.meeting {
+  border: solid #ccc;
+  border-width: 1px 0 0 0;
+}
+.church {
+  float: right;
+  font-size: 0.8em;
+}
+.info {
+  background: #ddd;
+  font-size: 0.8em;
+  margin: 0 0 0 3em;
+  padding: 1px 1em;
+}

@@ -13,6 +13,7 @@ class Pingst extends Calendar {
 		$pre_date = false;
 		$parsed_events = array();
 		foreach($events as $event) {
+			$event['date'] = preg_replace('#(\d{2})/(\d{2})#', '$2/$1', $event['date']);
 			if(!$event['date']) $event['date'] = $pre_date;
 			else $pre_date = $event['date'];
 			$when = strtotime($event['date'].' '.$event['time']);

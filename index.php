@@ -36,7 +36,8 @@ function __autoload($class) {
 
 date_default_timezone_set('Europe/Stockholm');
 if(isset($_GET['reloadcache'])) Cache::clear_cache();
-if(!Cache::stream_if_recent('index')) {
+
+if(true || !Cache::stream_if_recent('index')) {
 	$ui = new UI();
 	$ui->register('Linköpings Domkyrka', 'http://www.linkopingsdomkyrka.se/', new JBros('http://www.linkopingsdomkyrka.se/default.asp?page=page&menuid=1:8&pageid=1&currdate='), '#881003');
 	$ui->register('Ryttargårdskyrkan', 'http://www.ryttargardskyrkan.se/', new Ryttis(), '#108803');
@@ -46,6 +47,7 @@ if(!Cache::stream_if_recent('index')) {
 	$ui->register('Mikaelskyrkan', 'http://www.mikaelskyrkan.nu/', new Thot('http://www.mikaelskyrkan.nu/'), '#c00');
 	$ui->register('Missionskyrkan', 'http://www.linkoping.smf.se/', new Mission('http://www.linkoping.smf.se/'), '#a35');
 	$ui->register('Tomaskyrkan', 'http://www.tomaskyrkan.se/', new JBros('http://www.tomaskyrkan.se/default.asp?page=page&menuid=1:8&pageid=1&currdate='), '#fed');
+	$ui->register('Baptistkyrkan', 'http://www.linkopingbaptist.se/', new Baptist(), '#fed');
 	$ui->render('index');
 }
 
