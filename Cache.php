@@ -31,7 +31,7 @@ class Cache {
 		if(!is_array($urls)) $urls = array($urls);
 		$content = '';
 		foreach($urls as $url)
-			$content .= file_get_contents($url);
+			$content .= @file_get_contents($url);
 		if($utf_convert) $content = utf8_encode($content);
 		return self::store(md5(implode(',', $urls)), $content);
 	}
