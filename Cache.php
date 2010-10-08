@@ -24,7 +24,9 @@ class Cache {
 	}
 
 	static function clear_cache() {
-		unlink('cache/*');
+		$dir = opendir('cache');
+		while($file = readdir($dir))
+			if($file[0] != '.') unlink('cache/'.$file);
 	}
 
 	static private function get_url($urls, $utf_convert) {
