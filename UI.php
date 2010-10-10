@@ -27,7 +27,7 @@ class UI {
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta name="description" content="startsida" />
 	<link href="style.css" type="text/css" rel="stylesheet" />
-</head><body><h1>Linköpings kyrkor</h1>Välkommen till denna sida för att se vad som händer i Linköpings kyrkor. Om du saknar nån kyrka, eller ser något som inte funkar, skicka ett mail till min gmail, "jonatan.olofsson" at.. osv. (@gmail.com).';
+</head><body><h1>Linköpings kyrkor</h1>Välkommen till denna sida för att se vad som händer i Linköpings kyrkor. Om du saknar nån kyrka, eller ser något som inte funkar, skicka ett mail till min gmail, "jonatan.olofsson" at.. osv. (@gmail.com).<br \>För den intresserade finns källkod på <a href="http://github.com/jonatanolofsson/heisasolidbase">github</a>';
 		$meetings = array();
 		foreach($this->churches as $church)
 			$meetings = array_merge($meetings, self::get_all($church));
