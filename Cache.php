@@ -60,9 +60,10 @@ class Cache {
 	/**
 	 * Returns true if content was sent to browser, i.e. the cache was new enough
 	 */
-	static function stream_if_recent($name) {
+	static function stream_if_recent($name, $lim = false) {
+		if($lim === false) $lim = CACHELIMIT;
 		$files = glob("cache/$name*");
-		$limit = time() - CACHELIMIT;
+		$limit = time() - $lim;
 		$filename = false;
 		foreach($files as $file) {
 			$created = substr($file, strpos($file, '-')+1);
