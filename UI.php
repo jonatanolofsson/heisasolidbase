@@ -34,7 +34,7 @@ class UI {
 
 		usort($meetings, array('UI', 'sorting'));
 
-		$start = time()-60*30;
+		$start = time()-60*60;
 
 		$newday = true;
 		$newmonth = true;
