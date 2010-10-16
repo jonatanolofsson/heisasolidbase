@@ -24,6 +24,11 @@ h3 {
 .church {
   float: right;
   font-size: 0.8em;
+  color: #000;
+  text-decoration: none;
+}
+.church:hover {
+  text-decoration: underline;
 }
 .info {
   background: #ddd;

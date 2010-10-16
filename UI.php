@@ -57,7 +57,7 @@ class UI {
 			}
 
 			$out .= '<li class="meeting">'.strftime('%H:%M', $meeting['when']).' - '.$meeting['what'];
-			$out .= '<span class="church">'.$meeting['church']['name'].'</span>';
+			$out .= '<a href="'.$meeting['church']['url'].'" class="church">'.$meeting['church']['name'].'</a>';
 			if($meeting['info']) $out .= '<div class="info">'.strip_tags($meeting['info'], '<p><a><b><em>').'</div>';
 			//if($meeting['extra']) $out .= '<div class="extra">'.$meeting['extra'].'</div>';
 			$out .= '</li>';
