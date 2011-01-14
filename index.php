@@ -29,6 +29,13 @@ $subject = file_get_contents('/tmp/mission.html');
 preg_match_all('#'.$pattern.'#is', $subject, $matches, PREG_SET_ORDER);
 var_dump($matches);
 */
+//Johanneskyrkan
+/*
+$pattern = 'almanacka/(?<date>[^/]*)/[^>]*?><[^>]*?>(?<time>[^<]*?)</span>(?<what>[^<]*)<.*?field-content">(?<extra>(?<info><p>[^<]*?</p>.*?<p>[^<]*?</p>).*?)</div>';
+$content = file_get_contents('/tmp/johannes.html');
+preg_match_all('#'.$pattern.'#is', $content, $events, PREG_SET_ORDER);
+var_dump($events);
+*/
 
 function __autoload($class) {
 	include $class.'.php';
@@ -37,7 +44,7 @@ function __autoload($class) {
 date_default_timezone_set('Europe/Stockholm');
 if(isset($_GET['reloadcache'])) Cache::clear_cache();
 
-if(!Cache::stream_if_recent('index', 3600-date('i')*60)) {
+if(true||!Cache::stream_if_recent('index', 3600-date('i')*60)) {
 	$ui = new UI();
 	$ui->register('Linköpings Domkyrka', 'http://www.linkopingsdomkyrka.se/', new JBros('http://www.linkopingsdomkyrka.se/default.asp?page=page&menuid=1:8&pageid=1&currdate='), '#881003');
 	$ui->register('Ryttargårdskyrkan', 'http://www.ryttargardskyrkan.se/', new Ryttis(), '#108803');
@@ -48,6 +55,7 @@ if(!Cache::stream_if_recent('index', 3600-date('i')*60)) {
 	$ui->register('Missionskyrkan', 'http://www.linkoping.smf.se/', new Mission('http://www.linkoping.smf.se/'), '#a35');
 	$ui->register('Tomaskyrkan', 'http://www.tomaskyrkan.se/', new JBros('http://www.tomaskyrkan.se/default.asp?page=page&menuid=1:8&pageid=1&currdate='), '#fed');
 	$ui->register('Baptistkyrkan', 'http://www.linkopingbaptist.se/', new Baptist(), '#fed');
+	$ui->register('Johanneskyrkan', 'http://www.johanneskyrkan.se/', new Johanneskyrkan(), '#b9a870');
 	$ui->render('index');
 }
 

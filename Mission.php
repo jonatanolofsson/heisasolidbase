@@ -24,8 +24,8 @@ class Mission extends Calendar {
 	}
 
 	function get_all() {
-		$urls = 'http://www.linkoping.smf.se/index.php?n=this';
-		$urls = 'http://www.linkoping.smf.se/index.php?n=next';
+		$urls[] = 'http://www.linkoping.smf.se/index.php?n=this';
+		$urls[] = 'http://www.linkoping.smf.se/index.php?n=next';
 		return $this->parse(Cache::get($urls));
 	}
 }
