@@ -41,22 +41,38 @@ function __autoload($class) {
 	include $class.'.php';
 }
 
+/**
+ * Dumps the variable to the browser
+ * @return mixed
+ */
+function dump() {
+    $args = func_get_args();
+    echo '<div style="background-color: pink; margin: 3px;">';
+    foreach($args as $arg) {
+        echo "<p><pre>";
+        var_dump($arg);
+        echo "</pre></p>";
+    }
+    echo '</div>';
+    return @$args[0];
+}
+
 date_default_timezone_set('Europe/Stockholm');
 if(isset($_GET['reloadcache'])) Cache::clear_cache();
 
 if(!Cache::stream_if_recent('index', 3600-date('i')*60)) {
-	$ui = new UI();
-	$ui->register('Linköpings Domkyrka', 'http://www.linkopingsdomkyrka.se/', new JBros('http://www.linkopingsdomkyrka.se/default.asp?page=page&menuid=1:8&pageid=1&currdate='), '#881003');
-	$ui->register('Ryttargårdskyrkan', 'http://www.ryttargardskyrkan.se/', new Ryttis(), '#108803');
-	$ui->register('Pingstkyrkan', 'http://www.lkp.pingst.nu/', new Pingst(), '#100388');
-	$ui->register('Skäggetorps kyrka', 'http://www.svenskakyrkan.se/skaggetorp/', new Thot('http://www.thot.se/skaggetorp/'), '#fff');
-	$ui->register('Ansgarskyrkan', 'http://www.svenskakyrkan.se/skaggetorp/', new Thot('http://ansgarskyrkanlinkoping.se/'), '#ccc');
-	$ui->register('Mikaelskyrkan', 'http://www.mikaelskyrkan.nu/', new Thot('http://www.mikaelskyrkan.nu/'), '#c00');
-	$ui->register('Missionskyrkan', 'http://www.linkoping.smf.se/', new Mission('http://www.linkoping.smf.se/'), '#a35');
-	$ui->register('Tomaskyrkan', 'http://www.tomaskyrkan.se/', new JBros('http://www.tomaskyrkan.se/default.asp?page=page&menuid=1:8&pageid=1&currdate='), '#fed');
-	$ui->register('Baptistkyrkan', 'http://www.linkopingbaptist.se/', new Baptist(), '#fed');
-	$ui->register('Johanneskyrkan', 'http://www.johanneskyrkan.se/', new Johanneskyrkan(), '#b9a870');
-	$ui->render('index');
+    $ui = new UI();
+    $ui->register('Linköpings Domkyrka', 'http://www.linkopingsdomkyrka.se/', new JBros('http://www.linkopingsdomkyrka.se/default.asp?page=page&menuid=1:8&pageid=1&currdate='), '#881003');
+    $ui->register('Ryttargårdskyrkan', 'http://www.ryttargardskyrkan.se/', new Ryttis(), '#108803');
+    $ui->register('Pingstkyrkan', 'http://www.lkp.pingst.nu/', new Pingst(), '#100388');
+    $ui->register('Skäggetorps kyrka', 'http://www.svenskakyrkan.se/skaggetorp/', new Thot('http://www.thot.se/skaggetorp/'), '#fff');
+    $ui->register('Ansgarskyrkan', 'http://www.svenskakyrkan.se/skaggetorp/', new Thot('http://ansgarskyrkanlinkoping.se/'), '#ccc');
+    $ui->register('Mikaelskyrkan', 'http://www.mikaelskyrkan.nu/', new Thot('http://www.mikaelskyrkan.nu/'), '#c00');
+    $ui->register('Missionskyrkan', 'http://www.linkoping.smf.se/', new Mission('http://www.linkoping.smf.se/'), '#a35');
+    $ui->register('Tomaskyrkan', 'http://www.tomaskyrkan.se/', new JBros('http://www.tomaskyrkan.se/default.asp?page=page&menuid=1:8&pageid=1&currdate='), '#fed');
+    $ui->register('Baptistkyrkan', 'http://www.linkopingbaptist.se/', new Baptist(), '#fed');
+    $ui->register('Johanneskyrkan', 'http://www.johanneskyrkan.se/', new Johanneskyrkan(), '#b9a870');
+    $ui->render('index');
 }
 
 ?>
