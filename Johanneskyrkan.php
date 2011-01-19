@@ -2,7 +2,7 @@
 class Johanneskyrkan extends Calendar {
 	function __construct(){}
 	protected function parse($content) {
-		$pattern = 'almanacka/(?<date>[^/]*)/[^>]*?><[^>]*?>(?<time>[^<]*?)</span>(?<what>[^<]*)<.*?field-content">(?<extra>(?<info><p>[^<]*?</p>.*?<p>[^<]*?</p>).*?)</div>';
+		$pattern = 'almanacka/(?<date>[^/]*)/[^>]*?><[^>]*?>(?<time>[^<]*?)</span>(?<what>[^<]*)<.*?field-content">(?<extra>(?<info><p>[^<]*?</p>.*?(<p>[^<]*?</p>)?).*?)</div>';
 		preg_match_all('#'.$pattern.'#is', $content, $events, PREG_SET_ORDER);
 
 		$now = time();
