@@ -60,7 +60,7 @@ function dump() {
 date_default_timezone_set('Europe/Stockholm');
 if(isset($_GET['reloadcache'])) Cache::clear_cache();
 
-if(!Cache::stream_if_recent('index', 3600-date('i')*60)) {
+if(true||!Cache::stream_if_recent('index', 3600-date('i')*60)) {
     $ui = new UI();
     $ui->register('Linköpings Domkyrka', 'http://www.linkopingsdomkyrka.se/', new JBros('http://www.linkopingsdomkyrka.se/default.asp?page=page&menuid=1:8&pageid=1&currdate='), '#881003');
     $ui->register('Ryttargårdskyrkan', 'http://www.ryttargardskyrkan.se/', new Ryttis(), '#108803');
@@ -72,6 +72,7 @@ if(!Cache::stream_if_recent('index', 3600-date('i')*60)) {
     $ui->register('Tomaskyrkan', 'http://www.tomaskyrkan.se/', new JBros('http://www.tomaskyrkan.se/default.asp?page=page&menuid=1:8&pageid=1&currdate='), '#fed');
     $ui->register('Baptistkyrkan', 'http://www.linkopingbaptist.se/', new Baptist(), '#fed');
     $ui->register('Johanneskyrkan', 'http://www.johanneskyrkan.se/', new Johanneskyrkan(), '#b9a870');
+    $ui->register('Ny Generation', 'http://www.ng-liu.se/', new iCal('http://www.google.com/calendar/ical/tm1ehib7d0555ahbrg8pt5k75k%40group.calendar.google.com/public/basic.ics'), '#def');
     $ui->render('index');
 }
 
