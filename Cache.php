@@ -1,5 +1,5 @@
 <?PHP
-define('CACHELIMIT', 60*60*24*1);
+define('CACHELIMIT', 60*60*24*3);
 class Cache {
 	static function get($name, $utf_convert = false) {
 		if(is_string($name))
