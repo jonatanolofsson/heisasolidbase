@@ -64,9 +64,9 @@ if(!Cache::stream_if_recent('index', 3600-date('i')*60)) {
     $ui = new UI();
     $ui->register('Linköpings Domkyrka', 'http://www.linkopingsdomkyrka.se/', new JBros('http://www.linkopingsdomkyrka.se/default.asp?page=page&menuid=1:8&pageid=1&currdate='), '#881003');
     $ui->register('Ryttargårdskyrkan', 'http://www.ryttargardskyrkan.se/', new Ryttis(), '#108803');
-    $ui->register('Pingstkyrkan', 'http://www.lkp.pingst.nu/', new Pingst(), '#100388');
+    $ui->register('Pingstkyrkan', 'http://www.lkp.pingst.se/', new Pingst(), '#100388');
     $ui->register('Skäggetorps kyrka', 'http://www.svenskakyrkan.se/skaggetorp/', new Thot('http://www.thot.se/skaggetorp/'), '#fff');
-    $ui->register('Ansgarskyrkan', 'http://www.svenskakyrkan.se/skaggetorp/', new Thot('http://ansgarskyrkanlinkoping.se/'), '#ccc');
+    $ui->register('Ansgarskyrkan', 'http://www.ansgarskyrkanlinkoping.se/', new Thot('http://ansgarskyrkanlinkoping.se/'), '#ccc');
     $ui->register('Mikaelskyrkan', 'http://www.mikaelskyrkan.nu/', new Thot('http://www.mikaelskyrkan.nu/'), '#c00');
     $ui->register('Missionskyrkan', 'http://www.linkoping.smf.se/', new Mission('http://www.linkoping.smf.se/'), '#a35');
     $ui->register('Tomaskyrkan', 'http://www.tomaskyrkan.se/', new JBros('http://www.tomaskyrkan.se/default.asp?page=page&menuid=1:8&pageid=1&currdate='), '#fed');

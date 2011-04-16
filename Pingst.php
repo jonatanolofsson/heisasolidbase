@@ -14,11 +14,15 @@ class Pingst extends Calendar {
 		$parsed_events = array();
 		foreach($events as $event) {
 			preg_match('#(\d{2})/(\d{1,2})#', $event['date'], $m);
-            $event['date'] = date('Y').'-'.($m[2]<10?'0':'').$m[2].'-'.($m[1]<10?'0':'').$m[1];
-			if(!$event['date']) $event['date'] = $pre_date;
-			else $pre_date = $event['date'];
+			if($event['date']) {
+        $event['date'] = date('Y').'-'.($m[2]<10?'0':'').$m[2].'-'.($m[1]<10?'0':'').$m[1];
+        $pre_date = $event['date'];
+      }
+      else {
+        $event['date'] = $pre_date;
+      }
 			$when = strtotime($event['date'].' '.$event['time']);
-			if($when < $now) $when = strtotime('+1 year', $when);
+			if($when < mktime(0,0,0)) $when = strtotime('+1 year', $when);
             if(($where = trim($event['where'])) == 'Pingstkyrkan Linköping') $where = '';
 			$parsed_events[] = array(	'when' => $when,
 										'what' => trim($event['what']),
