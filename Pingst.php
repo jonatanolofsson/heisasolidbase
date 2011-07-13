@@ -14,7 +14,7 @@ class Pingst extends Calendar {
 		$parsed_events = array();
 		foreach($events as $event) {
 			preg_match('#(\d{2})/(\d{1,2})#', $event['date'], $m);
-			if($event['date']) {
+			if($m) {
         $event['date'] = date('Y').'-'.($m[2]<10?'0':'').$m[2].'-'.($m[1]<10?'0':'').$m[1];
         $pre_date = $event['date'];
       }
